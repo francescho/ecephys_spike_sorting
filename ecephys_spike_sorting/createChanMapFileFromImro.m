@@ -1,6 +1,21 @@
 % main data
+<<<<<<< Updated upstream
 directory = 'Z:\WT_Sequences\2024_winter\Raw_Data\Neural_Traces\IMRO';
 name = 'Payne_HPC';
+=======
+
+directory = 'Z:\fcho\pilot_2023\configuration\Frances_IMROs\actual\'
+% name = 'Ash_MEC_good'
+% name = 'Ash_MEC_alt'
+% name = 'BIRCH_IMEC0_Alt_v1'
+% name = 'BIRCH_IMEC0_Alt_v2'
+% name = 'BIRCH_IMEC0_good_v5';
+% name = 'Birch_MEC_Alt_v1';
+name = 'Birch_MEC_good';
+
+
+
+>>>>>>> Stashed changes
 
 %%
 % read imro file

@@ -80,11 +80,11 @@ def createInputJson(output_file,
                     ):
 
     # hard coded paths to code on your computer and system
-    ecephys_directory = r'C:\Users\Niflheim\Documents\GitHub\External\ecephys_spike_sorting\ecephys_spike_sorting'
+    ecephys_directory = r'C:\Users\walnut\Documents\GitHub\ecephys_spike_sorting\ecephys_spike_sorting'
     
     # location of kilosort respository and kilosort version
 
-    kilosort_repository = r'C:\Users\Niflheim\Documents\GitHub\External\Kilosort'
+    kilosort_repository = r'C:\Users\walnut\Documents\GitHub\Kilosort'
 
     KS2ver = '3.0'      # must equal '3.0', '2.5' or '2.0', and match the kiilosort_repository
     
@@ -92,14 +92,14 @@ def createInputJson(output_file,
     if KS2ver == '3.0':
         include_pcs = False  # set to false for KS2ver = '3.0'
     
-    npy_matlab_repository = r'C:\Users\Niflheim\Documents\GitHub\External\npy-matlab'
-    catGTPath = r'C:\Users\Niflheim\Documents\GitHub\SpikeGLX_tools\CatGT-win'
-    tPrime_path=r'C:\Users\Niflheim\Documents\GitHub\SpikeGLX_tools\TPrime-win'
-    cWaves_path=r'C:\Users\Niflheim\Documents\GitHub\SpikeGLX_tools\C_Waves-win'
+    npy_matlab_repository = r'C:\Users\walnut\Documents\GitHub\npy-matlab'
+    catGTPath = r'C:\Users\walnut\Documents\SpikeGLX_tools\CatGTWinApp\CatGT-win'
+    tPrime_path=r'C:\Users\walnut\Documents\SpikeGLX_tools\TPrimeWinApp\TPrime-win'
+    cWaves_path=r'C:\Users\walnut\Documents\SpikeGLX_tools\C_WavesWinApp\C_Waves-win'
     
      
     # for config files and kilosort working space
-    kilosort_output_tmp = r'D:\Kilosort_scratch' 
+    kilosort_output_tmp = r'C:\Kilosort_Workspace' 
     
     
     # derived directory names
