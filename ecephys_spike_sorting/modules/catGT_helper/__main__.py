@@ -89,7 +89,7 @@ def run_CatGT(args):
     catgt_runName = 'catgt_' + args['catGT_helper_params']['run_name'] + '_g' + str(first_gate)
     
     # build name for log copy
-    catgt_logName = write_catgt_runName
+    catgt_logName = catgt_runName
     if 'ap' in args['catGT_helper_params']['stream_string']:
         prb_title = ParseProbeStr(args['catGT_helper_params']['probe_string'])
         catgt_logName = catgt_logName + '_prb' + prb_title
