@@ -23,7 +23,7 @@ def run_CatGT(args):
         # call catGT directly with params. CatGT.log file will be saved lcoally
         # in current working directory (with the calling script)
         catGTexe_fullpath = catGTPath.replace('\\', '/') + "/CatGT"
-    elif sys.platform.starstwith('linux'):
+    elif sys.platform.startswith('linux'):
         os_str = 'linux'
         catGTexe_fullpath = catGTPath.replace('\\', '/') + "/runit.sh"
     else:
