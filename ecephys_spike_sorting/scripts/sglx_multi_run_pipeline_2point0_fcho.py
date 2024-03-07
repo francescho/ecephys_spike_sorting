@@ -36,7 +36,7 @@ base_dir = '//oak-smb-giocomo.stanford.edu/groups/giocomo/fcho/pilot_2023/'
 prefix = 'all' #eg datetime.today().strftime('%Y%m%d')
 
 # should be the same across all experiments
-rec_file_list = os.path.join(base_dir,'Preprocessed_Data/Provenance',prefix+'_sessions_fcho_test.csv')
+rec_file_list = os.path.join(base_dir,'Preprocessed_Data/Provenance',prefix+'_sessions_fcho_test_imro.csv')
 raw_data_dir = os.path.join(base_dir,'Raw_Data/Neural')
 imro_dir = os.path.join(base_dir,'Raw_Data/Neural/IMRO')
 processed_data_dir = os.path.join(base_dir,'Preprocessed_Data/Spikes')
@@ -56,10 +56,10 @@ modules = [
             'noise_templates',    
             'mean_waveforms',
             'quality_metrics',
-            #'depth_estimation',
+            # 'depth_estimation',
             'prePhy_filters'
 			]
-run_TPrime = True
+run_TPrime = False
 
 # brain region specific params
 # can add a new brain region by adding the key and value for each param
@@ -200,7 +200,13 @@ for a, row in sessions.iterrows():
     #           these strings must match a key in the param dictionaries above.
     run_specs = [				
                             # [rec_file_stem, 'gate', 'triggers', 'probes', 'regions']
-                            [rec_file_stem, '0,9', '0,0', '0,1', ['cortex','cortex']]	
+                            # fsc run
+                            # [rec_file_stem, '0,9', '0,0', '0,1', ['cortex','cortex']]
+                            [rec_file_stem, '0,9', '0,0', '0', ['cortex','cortex']]
+                            # fsc try running just probe1 (use comma)
+                            # [rec_file_stem, '0,9', '0,0', '1,1', ['cortex','cortex']]
+
+
                             # [rec_file_stem, '1,1', '0,0', '0,1', ['cortex','cortex']]	
                             # [rec_file_stem, '0,3', '0,0', '0,1', ['cortex','cortex']]
     ]
@@ -338,7 +344,15 @@ for a, row in sessions.iterrows():
             for shank in range(nshanks):
                 if nshanks==1:
                     outputName = 'imec' + prb + '_ks'
-                    chanMap = os.path.join(imro_dir, animal+chanMap_list[i]+'.mat')
+
+                    # FSC: deal with having different IMROs across sessions for the same probe; specify in all_sessions.csv
+                    if i==0: #
+                        imroSelect = row['IMRO_probe0']
+                    elif i==1:
+                        imroSelect = row['IMRO_probe1']
+
+                    # chanMap = os.path.join(imro_dir, animal+chanMap_list[i]+'.mat')
+                    chanMap = os.path.join(imro_dir, animal+str('_')+imroSelect+'.mat')
                 else:
                     outputName = 'imec' + prb + 'shank' + str(shank) + '_ks'
                     chanMap = os.path.join(imro_dir, 'shank'+str(shank)+'bank0.mat')
