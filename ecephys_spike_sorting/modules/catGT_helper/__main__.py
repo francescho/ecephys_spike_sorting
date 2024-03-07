@@ -26,6 +26,7 @@ def run_CatGT(args):
     elif sys.platform.startswith('linux'):
         os_str = 'linux'
         catGTexe_fullpath = catGTPath.replace('\\', '/') + "/runit.sh"
+        print('running on linux')
     else:
         print('unknown system, cannot run CatGt')
    
