@@ -155,9 +155,14 @@ def main():
 
     from ._schemas import InputParameters, OutputParameters
 
+    print('MAIN: INPUTPARAMETERS :', str(InputParameters))
+    print('MAIN: OUTPUTPARAMETERS :', str(OutputParameters))
+
     """Main entry point:"""
     mod = ArgSchemaParser(schema_type=InputParameters,
                           output_schema_type=OutputParameters)
+
+    print('MAIN: MOD.ARGS :', str(mod.args))
     
     output = run_CatGT(mod.args)
 
