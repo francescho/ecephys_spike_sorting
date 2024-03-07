@@ -24,9 +24,10 @@ from create_input_json import createInputJson
 
 # set for each run
 base_dir = '//oak-smb-giocomo.stanford.edu/groups/giocomo/export/data/Projects/JohnKei_NPH3'
+base_dir = 'Z:\fcho'
 
 # should be the same across all experiments
-rec_file_list = os.path.join(base_dir,'WenSorscher2023_revisions','all_sessions.csv')
+rec_file_list = os.path.join(base_dir,'pilot_2023','all_sessions_fcho_test.csv')
 raw_data_dir = base_dir
 imro_dir = os.path.join(base_dir,'WenSorscher2023_revisions')
 processed_data_dir = base_dir
