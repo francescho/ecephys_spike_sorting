@@ -95,9 +95,9 @@ def createInputJson(output_file,
         include_pcs = False  # set to false for KS2ver = '3.0'
     
     npy_matlab_repository = r'/home/users/fcho/npy-matlab'
-    catGTPath = r'/home/users/fcho/SpikeGLX_tools/CatGTWinApp/CatGT-win'
-    tPrime_path = r'/home/users/fcho/SpikeGLX_tools/TPrimeWinApp/TPrime-win'
-    cWaves_path = r'/home/users/fcho/SpikeGLX_tools/C_WavesWinApp/C_Waves-win'    
+    catGTPath = r'/home/users/fcho/SpikeGLX_tools/CatGT/CatGT-linux'
+    tPrime_path = r'/home/users/fcho/SpikeGLX_tools/TPrime/TPrime-linux'
+    cWaves_path = r'/home/users/fcho/SpikeGLX_tools/C_Waves/C_Waves-linux'    
     # catGTPath = r'C:\Users\walnut\Documents\SpikeGLX_tools\CatGTWinApp\CatGT-win'
     # tPrime_path=r'C:\Users\walnut\Documents\SpikeGLX_tools\TPrimeWinApp\TPrime-win'
     # cWaves_path=r'C:\Users\walnut\Documents\SpikeGLX_tools\C_WavesWinApp\C_Waves-win'
