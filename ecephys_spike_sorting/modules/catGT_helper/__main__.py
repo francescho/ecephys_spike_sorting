@@ -98,7 +98,10 @@ def run_CatGT(args):
         catgt_logName = catgt_logName + '_ni'
     catgt_logName = catgt_logName + '_CatGT.log'
     
-    
+    print('SRC FOR SHUTIL COPY', os.path.join(logPath,logName))
+    print('DEST FOR SHUTIL COPY', os.path.join(catgt_runDir,catgt_logName))
+
+
     catgt_runDir = os.path.join(args['directories']['extracted_data_directory'],catgt_runName)
     shutil.copyfile(os.path.join(logPath,logName), \
                     os.path.join(catgt_runDir,catgt_logName))
