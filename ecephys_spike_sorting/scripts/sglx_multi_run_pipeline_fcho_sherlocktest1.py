@@ -50,7 +50,7 @@ log_stream.write('Index,File,Sort_Error,Sort_Error_Description\n')
 sessions = pd.read_csv(rec_file_list)
 
 # set which parts of script are running
-run_CatGT = False
+run_CatGT = True
 # List of modules to run per probe; CatGT and TPrime are called once for each run.
 modules = [
             'kilosort_helper',
