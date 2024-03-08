@@ -85,7 +85,8 @@ def createInputJson(output_file,
     
     # location of kilosort respository and kilosort version
     # kilosort_repository = r'C:\Users\walnut\Documents\GitHub\Kilosort' 
-    kilosort_repository = r'/oak/stanford/groups/giocomo/fcho/ecephys_localtools/KilosortLocal' # static, local stashed on server
+    # kilosort_repository = r'/oak/stanford/groups/giocomo/fcho/ecephys_localtools/KilosortLocal' # static, local stashed on server
+    kilosort_repository = r'/oak/stanford/groups/giocomo/fcho/ecephys_localtools/Kilosort-3.0.1/Kilosort-3.0.1' # static, local stashed on server
 
 
     KS2ver = '3.0'      # must equal '3.0', '2.5' or '2.0', and match the kiilosort_repository
