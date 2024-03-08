@@ -61,7 +61,7 @@ modules = [
             # 'depth_estimation',
             'prePhy_filters'
 			]
-run_TPrime = False
+run_TPrime = True
 
 # brain region specific params
 # can add a new brain region by adding the key and value for each param
