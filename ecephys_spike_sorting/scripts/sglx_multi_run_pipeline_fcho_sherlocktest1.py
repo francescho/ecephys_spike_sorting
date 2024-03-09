@@ -34,7 +34,7 @@ from create_input_json_sherlock import createInputJson
 
 # set for each run
 # base_dir = '//oak-smb-giocomo.stanford.edu/groups/giocomo/fcho/pilot_2023/'
-base_dir = '/oak/stanford/groups/giocomo/fcho/pilot_2023' # sherlock
+base_dir = '/oak/stanford/groups/giocomo/fcho2/pilot_2023' # sherlock
 prefix = 'all' #eg datetime.today().strftime('%Y%m%d')
 
 # should be the same across all experiments
