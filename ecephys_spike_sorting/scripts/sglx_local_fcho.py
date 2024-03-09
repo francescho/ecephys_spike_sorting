@@ -210,12 +210,21 @@ for a, row in sessions.iterrows():
                             # [rec_file_stem, '1,1', '0,0', '0,1', ['cortex','cortex']]	
                             # [rec_file_stem, '0,3', '0,0', '0,1', ['cortex','cortex']]
     ]
+
+
     # nshanks = 4
     # ks_trange_list = ['[0 600]', '[603 1203]', '[1206 1806]', '[1809 Inf]']
     # chanMap_list = []
+    
+    # nshanks = 4
+    # ks_trange_list = ['[0 Inf]','[0 Inf]','[0 Inf]','[0 Inf]']
+    # chanMap_list = ['_HPC', '_MEC']
+    
+
     nshanks = 1
     ks_trange_list = ['[0 Inf]']
     chanMap_list = ['_HPC', '_MEC']
+
 
     # delete the existing CatGT.log
     try:
@@ -355,7 +364,20 @@ for a, row in sessions.iterrows():
                     chanMap = os.path.join(imro_dir, animal+str('_')+imroSelect+'.mat')
                 else:
                     outputName = 'imec' + prb + 'shank' + str(shank) + '_ks'
-                    chanMap = os.path.join(imro_dir, 'shank'+str(shank)+'bank0.mat')
+
+                    # FSC: deal with having different IMROs across sessions for the same probe; specify in all_sessions.csv
+                    if i==0: #
+                        imroSelect = row['IMRO_probe0']
+                    elif i==1:
+                        imroSelect = row['IMRO_probe1']
+
+                    chanMap = os.path.join(imro_dir, animal+str('_')+imroSelect+'.mat')
+
+                    # chanMap = os.path.join(imro_dir, 'shank'+str(shank)+'bank0.mat')
+
+
+
+
                 ks_trange = ks_trange_list[shank]
         
                 kilosort_output_dir = os.path.join(data_directory[i], outputName)
