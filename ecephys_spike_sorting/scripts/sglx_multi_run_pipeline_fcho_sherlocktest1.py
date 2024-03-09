@@ -50,12 +50,12 @@ log_stream.write('Index,File,Sort_Error,Sort_Error_Description\n')
 sessions = pd.read_csv(rec_file_list)
 
 # set which parts of script are running
-run_CatGT = False
+run_CatGT = True
 # List of modules to run per probe; CatGT and TPrime are called once for each run.
 modules = [
-            # 'kilosort_helper',
-            # 'kilosort_postprocessing',
-            # 'noise_templates',    
+            'kilosort_helper',
+            'kilosort_postprocessing',
+            'noise_templates',    
             'mean_waveforms',
             'quality_metrics',
             # 'depth_estimation',
@@ -203,10 +203,10 @@ for a, row in sessions.iterrows():
     run_specs = [				
                             # [rec_file_stem, 'gate', 'triggers', 'probes', 'regions']
                             # fsc run
-                            [rec_file_stem, '0,9', '0,0', '0,1', ['cortex','cortex']]
+                            # [rec_file_stem, '0,9', '0,0', '0,1', ['cortex','cortex']]
                             # [rec_file_stem, '0,9', '0,0', '0', ['cortex','cortex']]
                             # fsc try running just probe1 (use comma)
-                            # [rec_file_stem, '0,9', '0,0', '1,1', ['cortex','cortex']]
+                            [rec_file_stem, '0,9', '0,0', '1,1', ['cortex','cortex']]
 
 
                             # [rec_file_stem, '1,1', '0,0', '0,1', ['cortex','cortex']]	
