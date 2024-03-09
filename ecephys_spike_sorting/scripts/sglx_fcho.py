@@ -18,7 +18,7 @@ from create_input_json_sherlock import createInputJson
 def main():
 
 	# path to session attributes: read from 2nd argument from command line 
-	_, _, attributes_path = sys.argv
+	_, attributes_path = sys.argv
 
 	# read in session attributes
 	sessions = pd.read_csv(attributes_path)
