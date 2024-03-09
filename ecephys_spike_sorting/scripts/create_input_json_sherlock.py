@@ -1,39 +1,7 @@
 import os, io, json, sys
 import numpy as np
 
-### CHANGE DIRECTORIES (CONSOLIDATED AT TOP) ###
 
-# hard coded paths to code on your computer and system
-ecephys_directory = r'/home/users/fcho/ecephys_spike_sorting/ecephys_spike_sorting' # github repo on sherlock
-
-# location of kilosort respository and kilosort version
-kilosort_repository = r'/oak/stanford/groups/giocomo/fcho/ecephys_localtools/Kilosort-3.0.1/Kilosort-3.0.1' # use patched 3.0.1 (released March 7, 2024 to fix spike holes) 
-
-KS2ver = '3.0'      # must equal '3.0', '2.5' or '2.0', and match the kiilosort_repository
-# KS 3.0 does not yet output pcs.
-if KS2ver == '3.0':
-    include_pcs = False  # set to false for KS2ver = '3.0'
-
-npy_matlab_repository = r'/home/users/fcho/npy-matlab' # repo on sherlock
-catGTPath = r'/oak/stanford/groups/giocomo/fcho/ecephys_localtools/spikeGLXtools/CatGT/CatGT-linux'
-tPrime_path = r'/oak/stanford/groups/giocomo/fcho/ecephys_localtools/spikeGLXtools/TPrime/TPrime-linux'
-cWaves_path = r'/oak/stanford/groups/giocomo/fcho/ecephys_localtools/spikeGLXtools/C_Waves/C_Waves-linux'    
-
-## cool stuff (for parallellzing to prevent collision of temporary ks files)
-# for config files and kilosort working space
-default_ks_tmp = r'/oak/stanford/groups/giocomo/fcho/ecephys_localtools/Kilosort_scratch' 
-kilosort_output_tmp = os.environ.get("KS_OUT_TMP_OVERRIDE", default_ks_tmp) # if first doesn't exist, it will save to default (do this if running serial)
-
-# derived directory names
-modules_directory = os.path.join(ecephys_directory,'modules')
-
-if kilosort_output_directory is None \
-     and extracted_data_directory is None \
-     and npx_directory is None:
-    raise Exception('Must specify at least one output directory')
-
-
-### 
 
 if sys.platform == 'linux':
     import pwd
@@ -115,6 +83,40 @@ def createInputJson(output_file,
 
    
 
+
+    ### CHANGE DIRECTORIES (CONSOLIDATED AT TOP) ###
+
+    # hard coded paths to code on your computer and system
+    ecephys_directory = r'/home/users/fcho/ecephys_spike_sorting/ecephys_spike_sorting' # github repo on sherlock
+
+    # location of kilosort respository and kilosort version
+    kilosort_repository = r'/oak/stanford/groups/giocomo/fcho/ecephys_localtools/Kilosort-3.0.1/Kilosort-3.0.1' # use patched 3.0.1 (released March 7, 2024 to fix spike holes) 
+
+    KS2ver = '3.0'      # must equal '3.0', '2.5' or '2.0', and match the kiilosort_repository
+    # KS 3.0 does not yet output pcs.
+    if KS2ver == '3.0':
+        include_pcs = False  # set to false for KS2ver = '3.0'
+
+    npy_matlab_repository = r'/home/users/fcho/npy-matlab' # repo on sherlock
+    catGTPath = r'/oak/stanford/groups/giocomo/fcho/ecephys_localtools/spikeGLXtools/CatGT/CatGT-linux'
+    tPrime_path = r'/oak/stanford/groups/giocomo/fcho/ecephys_localtools/spikeGLXtools/TPrime/TPrime-linux'
+    cWaves_path = r'/oak/stanford/groups/giocomo/fcho/ecephys_localtools/spikeGLXtools/C_Waves/C_Waves-linux'    
+
+    ## cool stuff (for parallellzing to prevent collision of temporary ks files)
+    # for config files and kilosort working space
+    default_ks_tmp = r'/oak/stanford/groups/giocomo/fcho/ecephys_localtools/Kilosort_scratch' 
+    kilosort_output_tmp = os.environ.get("KS_OUT_TMP_OVERRIDE", default_ks_tmp) # if first doesn't exist, it will save to default (do this if running serial)
+
+    # derived directory names
+    modules_directory = os.path.join(ecephys_directory,'modules')
+
+    if kilosort_output_directory is None \
+         and extracted_data_directory is None \
+         and npx_directory is None:
+        raise Exception('Must specify at least one output directory')
+
+
+    ### 
     #default ephys params. For spikeGLX, these get replaced by values read from metadata
     sample_rate = 30000
     num_channels = 385    
