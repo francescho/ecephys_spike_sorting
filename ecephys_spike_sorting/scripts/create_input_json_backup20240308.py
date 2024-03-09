@@ -81,11 +81,10 @@ def createInputJson(output_file,
 
     # hard coded paths to code on your computer and system
     ecephys_directory = r'C:\Users\walnut\Documents\GitHub\ecephys_spike_sorting\ecephys_spike_sorting'
-
     
-    # location of kilosort respository and kilosort version (update 3/8/24: use KS3patch0!!!)
+    # location of kilosort respository and kilosort version
 
-    kilosort_repository = r'\\oak-smb-giocomo.stanford.edu\groups\giocomo\fcho2\ecephys_localtools\Kilosort-3.0.1\Kilosort-3.0.1'
+    kilosort_repository = r'C:\Users\walnut\Documents\GitHub\Kilosort'
 
     KS2ver = '3.0'      # must equal '3.0', '2.5' or '2.0', and match the kiilosort_repository
     
