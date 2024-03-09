@@ -87,10 +87,10 @@ def createInputJson(output_file,
     ### CHANGE DIRECTORIES (CONSOLIDATED AT TOP) ###
 
     # hard coded paths to code on your computer and system
-    ecephys_directory = r'/home/users/fcho/ecephys_spike_sorting/ecephys_spike_sorting' # github repo on sherlock
+    ecephys_directory = r'/home/users/fcho2/ecephys_spike_sorting/ecephys_spike_sorting' # github repo on sherlock
 
     # location of kilosort respository and kilosort version
-    kilosort_repository = r'/oak/stanford/groups/giocomo/fcho/ecephys_localtools/Kilosort-3.0.1/Kilosort-3.0.1' # use patched 3.0.1 (released March 7, 2024 to fix spike holes) 
+    kilosort_repository = r'/oak/stanford/groups/giocomo/fcho2/ecephys_localtools/Kilosort-3.0.1/Kilosort-3.0.1' # use patched 3.0.1 (released March 7, 2024 to fix spike holes) 
 
     KS2ver = '3.0'      # must equal '3.0', '2.5' or '2.0', and match the kiilosort_repository
     # KS 3.0 does not yet output pcs.
@@ -98,9 +98,9 @@ def createInputJson(output_file,
         include_pcs = False  # set to false for KS2ver = '3.0'
 
     npy_matlab_repository = r'/home/users/fcho/npy-matlab' # repo on sherlock
-    catGTPath = r'/oak/stanford/groups/giocomo/fcho/ecephys_localtools/spikeGLXtools/CatGT/CatGT-linux'
-    tPrime_path = r'/oak/stanford/groups/giocomo/fcho/ecephys_localtools/spikeGLXtools/TPrime/TPrime-linux'
-    cWaves_path = r'/oak/stanford/groups/giocomo/fcho/ecephys_localtools/spikeGLXtools/C_Waves/C_Waves-linux'    
+    catGTPath = r'/oak/stanford/groups/giocomo/fcho2/ecephys_localtools/spikeGLXtools/CatGT/CatGT-linux'
+    tPrime_path = r'/oak/stanford/groups/giocomo/fcho2/ecephys_localtools/spikeGLXtools/TPrime/TPrime-linux'
+    cWaves_path = r'/oak/stanford/groups/giocomo/fcho2/ecephys_localtools/spikeGLXtools/C_Waves/C_Waves-linux'    
 
     ## cool stuff (for parallellzing to prevent collision of temporary ks files)
     # for config files and kilosort working space
