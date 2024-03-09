@@ -38,7 +38,7 @@ base_dir = '/oak/stanford/groups/giocomo/fcho2/pilot_2023' # sherlock
 prefix = 'all' #eg datetime.today().strftime('%Y%m%d')
 
 # should be the same across all experiments
-rec_file_list = os.path.join(base_dir,'Preprocessed_Data/Provenance',prefix+'_sessions_fcho_sherlocktest.csv')
+rec_file_list = os.path.join(base_dir,'Preprocessed_Data/Provenance',prefix+'_sessions_fcho_sherlocksdev.csv')
 raw_data_dir = os.path.join(base_dir,'Raw_Data/Neural')
 imro_dir = os.path.join(base_dir,'Raw_Data/Neural/IMRO')
 processed_data_dir = os.path.join(base_dir,'Preprocessed_Data/Spikes')
@@ -50,18 +50,18 @@ log_stream.write('Index,File,Sort_Error,Sort_Error_Description\n')
 sessions = pd.read_csv(rec_file_list)
 
 # set which parts of script are running
-run_CatGT = False
+run_CatGT = True
 # List of modules to run per probe; CatGT and TPrime are called once for each run.
 modules = [
             # 'kilosort_helper',
             # 'kilosort_postprocessing',
             # 'noise_templates',    
-            'mean_waveforms',
-            'quality_metrics',
+            # 'mean_waveforms',
+            # 'quality_metrics',
             # 'depth_estimation',
-            'prePhy_filters'
+            # 'prePhy_filters'
 			]
-run_TPrime = True
+run_TPrime = False
 
 # brain region specific params
 # can add a new brain region by adding the key and value for each param
