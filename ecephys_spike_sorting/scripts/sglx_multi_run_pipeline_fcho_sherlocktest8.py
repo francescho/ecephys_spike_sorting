@@ -204,9 +204,9 @@ for a, row in sessions.iterrows():
                             # [rec_file_stem, 'gate', 'triggers', 'probes', 'regions']
                             # fsc run
                             # [rec_file_stem, '0,9', '0,0', '0,1', ['cortex','cortex']]
-                            [rec_file_stem, '0,9', '0,0', '0', ['cortex','cortex']]
+                            # [rec_file_stem, '0,9', '0,0', '0', ['cortex','cortex']]
                             # fsc try running just probe1 (use comma)
-                            # [rec_file_stem, '0,9', '0,0', '1,1', ['cortex','cortex']]
+                            [rec_file_stem, '0,9', '0,0', '1,1', ['cortex','cortex']]
 
 
                             # [rec_file_stem, '1,1', '0,0', '0,1', ['cortex','cortex']]	

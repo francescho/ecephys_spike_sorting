@@ -36,7 +36,7 @@ base_dir = '//oak-smb-giocomo.stanford.edu/groups/giocomo/fcho2/pilot_2023/'
 prefix = 'all' #eg datetime.today().strftime('%Y%m%d')
 
 # should be the same across all experiments
-rec_file_list = os.path.join(base_dir,'Preprocessed_Data/Provenance',prefix+'_sessions_fcho_local_v1.csv')
+rec_file_list = os.path.join(base_dir,'Preprocessed_Data/Provenance',prefix+'_sessions_fcho_local_v2.csv')
 raw_data_dir = os.path.join(base_dir,'Raw_Data/Neural')
 imro_dir = os.path.join(base_dir,'Raw_Data/Neural/IMRO')
 processed_data_dir = os.path.join(base_dir,'Preprocessed_Data/Spikes')
@@ -48,7 +48,7 @@ log_stream.write('Index,File,Sort_Error,Sort_Error_Description\n')
 sessions = pd.read_csv(rec_file_list)
 
 # set which parts of script are running
-run_CatGT = True
+run_CatGT = False
 # List of modules to run per probe; CatGT and TPrime are called once for each run.
 modules = [
             'kilosort_helper',
@@ -201,8 +201,8 @@ for a, row in sessions.iterrows():
     run_specs = [				
                             # [rec_file_stem, 'gate', 'triggers', 'probes', 'regions']
                             # fsc run
-                            # [rec_file_stem, '0,9', '0,0', '0,1', ['cortex','cortex']]
-                            [rec_file_stem, '0,9', '0,0', '0', ['cortex','cortex']]
+                            [rec_file_stem, '0,9', '0,0', '0,1', ['cortex','cortex']]
+                            # [rec_file_stem, '0,9', '0,0', '0', ['cortex','cortex']]
                             # fsc try running just probe1 (use comma)
                             # [rec_file_stem, '0,9', '0,0', '1,1', ['cortex','cortex']]
 
@@ -219,7 +219,7 @@ for a, row in sessions.iterrows():
     # nshanks = 4
     # ks_trange_list = ['[0 Inf]','[0 Inf]','[0 Inf]','[0 Inf]']
     # chanMap_list = ['_HPC', '_MEC']
-    
+
 
     nshanks = 1
     ks_trange_list = ['[0 Inf]']
