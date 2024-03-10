@@ -38,7 +38,7 @@ base_dir = '/oak/stanford/groups/giocomo/fcho2/pilot_2023' # sherlock
 prefix = 'all' #eg datetime.today().strftime('%Y%m%d')
 
 # should be the same across all experiments
-rec_file_list = os.path.join(base_dir,'Preprocessed_Data/Provenance',prefix+'_sessions_fcho_local_v2.csv')
+rec_file_list = os.path.join(base_dir,'Preprocessed_Data/Provenance',prefix+'_sessions_fcho_local_v3.csv')
 raw_data_dir = os.path.join(base_dir,'Raw_Data/Neural')
 imro_dir = os.path.join(base_dir,'Raw_Data/Neural/IMRO')
 processed_data_dir = os.path.join(base_dir,'Preprocessed_Data/Spikes')
