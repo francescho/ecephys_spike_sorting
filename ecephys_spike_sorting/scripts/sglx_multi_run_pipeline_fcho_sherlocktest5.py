@@ -50,18 +50,18 @@ log_stream.write('Index,File,Sort_Error,Sort_Error_Description\n')
 sessions = pd.read_csv(rec_file_list)
 
 # set which parts of script are running
-run_CatGT = True
+run_CatGT = False
 # List of modules to run per probe; CatGT and TPrime are called once for each run.
 modules = [
-            # 'kilosort_helper',
-            # 'kilosort_postprocessing',
-            # 'noise_templates',    
-            # 'mean_waveforms',
-            # 'quality_metrics',
+            'kilosort_helper',
+            'kilosort_postprocessing',
+            'noise_templates',    
+            'mean_waveforms',
+            'quality_metrics',
             # 'depth_estimation',
-            # 'prePhy_filters'
+            'prePhy_filters'
 			]
-run_TPrime = False
+run_TPrime = True
 
 # brain region specific params
 # can add a new brain region by adding the key and value for each param
