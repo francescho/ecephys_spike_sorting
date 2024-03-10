@@ -61,7 +61,7 @@ modules = [
             # 'depth_estimation',
             'prePhy_filters'
 			]
-run_TPrime = True
+run_TPrime = False
 
 # brain region specific params
 # can add a new brain region by adding the key and value for each param
@@ -203,10 +203,10 @@ for a, row in sessions.iterrows():
     run_specs = [				
                             # [rec_file_stem, 'gate', 'triggers', 'probes', 'regions']
                             # fsc run
-                            [rec_file_stem, '0,9', '0,0', '0,1', ['cortex','cortex']]
+                            # [rec_file_stem, '0,9', '0,0', '0,1', ['cortex','cortex']]
                             # [rec_file_stem, '0,9', '0,0', '0', ['cortex','cortex']]
                             # fsc try running just probe1 (use comma)
-                            # [rec_file_stem, '0,9', '0,0', '1,1', ['cortex','cortex']]
+                            [rec_file_stem, '0,9', '0,0', '1,1', ['cortex','cortex']]
 
 
                             # [rec_file_stem, '1,1', '0,0', '0,1', ['cortex','cortex']]	
