@@ -32,6 +32,10 @@ def run_kilosort(args):
 
     output_dir = args['directories']['kilosort_output_directory']
     output_dir_forward_slash = output_dir.replace('\\','/')
+
+    ### FSC TROUBLESHOOT
+    print('====== IN KILOSORT MAINPY, print INPUT FILE: ', input_file_forward_slash)
+    print('====== IN KILOSORT MAINPY, print OUTPUT_DIR : ', output_dir_forward_slash)
     
 
     mask = get_noise_channels(args['ephys_params']['ap_band_file'],
