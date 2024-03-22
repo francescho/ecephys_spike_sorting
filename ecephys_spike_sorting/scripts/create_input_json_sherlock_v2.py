@@ -19,8 +19,15 @@ def create_samba_directory(samba_server, samba_share):
 
     return data_dir
 
+
 def createInputJson(output_file, 
                     npx_directory=None, 
+                    ecephys_directory=None,
+                    kilosort_repository=None,
+                    npy_matlab_repository=None,
+                    catGTPath=None,
+                    tPrime_path=None,
+                    cWaves_path=None,
                     continuous_file = None,
                     spikeGLX_data=True,
                     input_meta_path=None,
@@ -85,13 +92,19 @@ def createInputJson(output_file,
 
 
     ### CHANGE DIRECTORIES (CONSOLIDATED AT TOP) ###
+                                    ecephys_directory=self.config['ecephys_directory'],
+                                       kilosort_repository=self.config['kilosort_repository'],
+                                       npy_matlab_repository=self.config['npy_matlab_repository'],
+                                       catGTPath=self.config['catGTPath'],
+                                       tPrime_path=self.config['tPrime_path'],
+                                       cWaves_path=self.config['cWaves_path'],
 
     # hard coded paths to code on your computer and system
-    ecephys_directory = r'/home/users/fcho/ecephys_spike_sorting/ecephys_spike_sorting' # github repo on sherlock
+    # ecephys_directory = r'/home/users/fcho/ecephys_spike_sorting/ecephys_spike_sorting' # github repo on sherlock
 
     # location of kilosort respository and kilosort version
     # kilosort_repository = r'/oak/stanford/groups/giocomo/fcho2/ecephys_localtools/Kilosort-3.0.1/Kilosort-3.0.1' # use patched 3.0.1 (released March 7, 2024 to fix spike holes) 
-    kilosort_repository = r'/oak/stanford/groups/giocomo/fcho2/ecephys_localtools/KilosortLocal' # this is version3
+    # kilosort_repository = r'/oak/stanford/groups/giocomo/fcho2/ecephys_localtools/KilosortLocal' # this is version3
     
 
     KS2ver = '3.0'      # must equal '3.0', '2.5' or '2.0', and match the kiilosort_repository
@@ -99,10 +112,10 @@ def createInputJson(output_file,
     if KS2ver == '3.0':
         include_pcs = False  # set to false for KS2ver = '3.0'
 
-    npy_matlab_repository = r'/home/users/fcho/npy-matlab' # repo on sherlock
-    catGTPath = r'/oak/stanford/groups/giocomo/fcho2/ecephys_localtools/spikeGLXtools/CatGT/CatGT-linux'
-    tPrime_path = r'/oak/stanford/groups/giocomo/fcho2/ecephys_localtools/spikeGLXtools/TPrime/TPrime-linux'
-    cWaves_path = r'/oak/stanford/groups/giocomo/fcho2/ecephys_localtools/spikeGLXtools/C_Waves/C_Waves-linux'    
+    # npy_matlab_repository = r'/home/users/fcho/npy-matlab' # repo on sherlock
+    # catGTPath = r'/oak/stanford/groups/giocomo/fcho2/ecephys_localtools/spikeGLXtools/CatGT/CatGT-linux'
+    # tPrime_path = r'/oak/stanford/groups/giocomo/fcho2/ecephys_localtools/spikeGLXtools/TPrime/TPrime-linux'
+    # cWaves_path = r'/oak/stanford/groups/giocomo/fcho2/ecephys_localtools/spikeGLXtools/C_Waves/C_Waves-linux'    
 
     ## cool stuff (for parallellzing to prevent collision of temporary ks files)
     # for config files and kilosort working space
@@ -140,6 +153,8 @@ def createInputJson(output_file,
         if input_meta_path is not None:
             probe_type, sample_rate, num_channels, reference_channels, \
                 uVPerBit, useGeom = SpikeGLX_utils.EphysParams(input_meta_path)  
+
+            print('===== FSC: print input_meta_path')
             print('SpikeGLX params read from meta')
             print('probe type: {:s}, sample_rate: {:.5f}, num_channels: {:d}, uVPerBit: {:.4f}'.format\
                   (probe_type, sample_rate, num_channels, uVPerBit))

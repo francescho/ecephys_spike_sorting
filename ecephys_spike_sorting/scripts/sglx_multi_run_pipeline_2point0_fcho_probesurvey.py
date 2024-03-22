@@ -218,8 +218,12 @@ for a, row in sessions.iterrows():
     if row['Task']=='ProbeSurvey':
         # set this manually in sessions.csv depending on probe survey duration, number of banks, etc
         nshanks = 4
-        ks_trange_list = [sessions.iloc[0]['ps_0'], sessions.iloc[0]['ps_1'], sessions.iloc[0]['ps_2'], sessions.iloc[0]['ps_3']]    
+        num_bankstotal = row['ps_numbanks']
+        tmp_list = [row['ps_1'], row['ps_2'], row['ps_3'], row['ps_4'], row['ps_5'], row['ps_6'], row['ps_7'], row['ps_8'], row['ps_9'], row['ps_10'], row['ps_11'], row['ps_12']]
+        ks_trange_list = tmp_list[0:num_bankstotal-1]
         chanMap_list = []
+        print('\n === PROBE SURVEY! TOTAL NUMBER OF BANKS: ', num_bankstotal)
+        print('\n KS TRANGE LIST FOR PROBE SURVEY: ', ks_trange_list)
 
     else:
         nshanks = 1
