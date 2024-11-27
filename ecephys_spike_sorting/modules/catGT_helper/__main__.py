@@ -14,6 +14,7 @@ from ecephys_spike_sorting.scripts.helpers import SpikeGLX_utils
 def run_CatGT(args):
 
     print('ecephys spike sorting: CatGT helper module')
+    print('!!! OUTCOMMENT LNS 62-63 FOR GT_LIST, 11/15/24!!!!!')
 
     catGTPath = args['catGT_helper_params']['catGTPath']
     if sys.platform.startswith('win'):
@@ -58,8 +59,10 @@ def run_CatGT(args):
     cmd_parts.append(catGTexe_fullpath)
     cmd_parts.append('-dir=' + args['directories']['npx_directory'])
     cmd_parts.append('-run=' + args['catGT_helper_params']['run_name'])
-    cmd_parts.append('-g=' + args['catGT_helper_params']['gate_string'])
-    cmd_parts.append('-t=' + args['catGT_helper_params']['trigger_string'])
+    ## outcomment next 2 lines to run gtlist.py
+    # cmd_parts.append('-g=' + args['catGT_helper_params']['gate_string']) 
+    # cmd_parts.append('-t=' + args['catGT_helper_params']['trigger_string'])
+    
     cmd_parts.append('-prb=' + args['catGT_helper_params']['probe_string'])
     cmd_parts.append(args['catGT_helper_params']['stream_string'])
     cmd_parts.append(car_str)
@@ -99,7 +102,7 @@ def run_CatGT(args):
     catgt_logName = catgt_logName + '_CatGT.log'
     
     print('SRC FOR SHUTIL COPY', os.path.join(logPath,logName))
-    print('DEST FOR SHUTIL COPY', os.path.join(catgt_runDir,catgt_logName))
+    # print('DEST FOR SHUTIL COPY', os.path.join(catgt_runDir,catgt_logName))
 
 
     catgt_runDir = os.path.join(args['directories']['extracted_data_directory'],catgt_runName)
@@ -110,19 +113,28 @@ def run_CatGT(args):
     run_name = args['catGT_helper_params']['run_name'] + '_g' + str(first_gate)
     fyi_path = os.path.join(catgt_runDir, (run_name + '_fyi.txt'))
     all_fyi_path =  os.path.join(catgt_runDir, (run_name + '_all_fyi.txt'))
-    temp_path = os.path.join(catgt_runDir, 'temp.txt')
+    # temp_path = os.path.join(catgt_runDir, 'temp.txt')
     if Path(fyi_path).is_file():        
         if Path(all_fyi_path).is_file():
             # append current fyi
-            if os_str == 'linux':
-                cat_fyi_cmd = 'cat ' + all_fyi_path + ' ' + fyi_path + ' > ' + temp_path
-            else:
-                cat_fyi_cmd = 'type ' + all_fyi_path + ' ' + fyi_path + ' > ' + temp_path
-            print(cat_fyi_cmd)
-            subprocess.Popen(cat_fyi_cmd, shell='False').wait()
-            os.remove(all_fyi_path)
-            shutil.copyfile(temp_path, all_fyi_path)
-            os.remove(temp_path)
+            # if os_str == 'linux':
+            #     cat_fyi_cmd = 'cat ' + all_fyi_path + ' ' + fyi_path + ' > ' + temp_path
+            # else:
+            #     cat_fyi_cmd = 'type ' + all_fyi_path + ' ' + fyi_path + ' > ' + temp_path
+            # print(cat_fyi_cmd)
+            # subprocess.Popen(cat_fyi_cmd, shell='False').wait()
+            # os.remove(all_fyi_path)
+            # shutil.copyfile(temp_path, all_fyi_path)
+            # os.remove(temp_path)
+            with open(all_fyi_path,'r') as f0:
+                allSet = set(f0.readlines())
+            with open(fyi_path,'r') as f1:
+                newSet = set(f1.readlines())
+            allSet = allSet | newSet          # union of sets removes duplicate lines
+            allList = list(allSet)
+            allList.sort()
+            with open(all_fyi_path,'w') as f0:
+                f0.writelines(allList)            
         else:
             # copy current fyi to all_fyi
             shutil.copyfile(fyi_path, all_fyi_path)
