@@ -56,7 +56,7 @@ def run_CatGT(args):
     
     cmd_parts = list()
     
-    cmd_parts.append(catGTexe_fullpath)
+    # cmd_parts.append(catGTexe_fullpath)
     cmd_parts.append('-dir=' + args['directories']['npx_directory'])
     cmd_parts.append('-run=' + args['catGT_helper_params']['run_name'])
     ## outcomment next 2 lines to run gtlist.py
@@ -73,11 +73,14 @@ def run_CatGT(args):
     
     # print('cmd_parts')
 
-    catGT_cmd = ' '        # use space as the separator for the command parts
-    catGT_cmd = catGT_cmd.join(cmd_parts)
+    catGT_cmd_A = ' '        # use space as the separator for the command parts
+    catGT_cmd_A = catGT_cmd.join(cmd_parts)
     
-    print('CatGT command line:' + catGT_cmd)
-    
+    print('CatGT command line:' + catGT_cmd_A)
+    catGT_cmd = catGTexe_fullpath + " '" + catGT_cmd_A + "'"
+    print('NEW CatGT command line:' + catGT_cmd)
+
+
     start = time.time()
     subprocess.Popen(catGT_cmd,shell='False').wait()
 
